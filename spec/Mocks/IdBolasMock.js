@@ -1,0 +1,3 @@
+function IdBolasMock() {
+    this.innerHTML;
+}

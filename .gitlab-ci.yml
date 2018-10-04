@@ -1,0 +1,12 @@
+before_script:
+#  - gem install jasmine
+
+stages:
+   - test_project
+
+build_project: 
+    stage: test_project   
+    script:    
+      - rake jasmine:ci
+    tags:  
+      - tads

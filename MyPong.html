@@ -1,0 +1,239 @@
+<!--
+    Descripción: Página visual del código.
+    @Author:  TADS-LEGANES//GRUPO3
+    @Subject: Técnicas Ágiles de Desarrollo de Software
+    @Year: 2017
+-->
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MyPong</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<body onkeypress="processKey(event);">
+
+    <!-- Menu -->
+
+    <div id="menuPrincipal" style="width: 100%; height: 100%; visibility: visible; position: absolute; background: white;">
+
+        <!-- Logo -->
+        <img src="images/logo_menu.jpg" alt="title" style="width: 25%; margin-left: 37.5%;">
+
+        <!-- Menu 1 : Modo de Juego -->
+        <div  id="sub-menu-1" class="panel panel-info" style="width: 25% ; position: absolute; visibility: visible; top:56.5% ; left: 37.5%;" align="center">
+            <div class="panel-heading" style="font-size:160%;">Modo de Juego </div>
+                <div class="panel-body">
+
+                    <div class="list-group" >
+
+                        <a href="#" class="list-group-item" onclick="modeFronton ()">Frontón</a>
+                        <a href="#" class="list-group-item" onclick="playerVsPlayer ()">2 Jugadores</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu 2 : Dificultad -->
+        <div id="sub-menu-2" class="panel panel-info" style="width: 25% ; position: absolute; visibility: hidden; top:70.5% ; left: 37.5%; " align="center">
+            <div class="panel-heading" style="font-size:160%;">Dificultad
+                <span class="glyphicon glyphicon-menu-left" aria-hidden="true" style="float: left; margin-top: 5px; cursor: pointer" onclick="cambiarMenuAtrasF ()"></span>
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true" style="float: right; margin-top: 5px; cursor: pointer" onclick="cambiarMenuAdelenteF ()"></span>
+            </div>
+                <div class="panel-body">
+
+                    <div class="list-group">
+
+                        <a id = "easy" href="#" class="list-group-item" onclick="pruebaRadio ('easy')" >Fácil</a>
+                        <a id = "medium" value ="10" href="#" class="list-group-item" onclick="pruebaRadio ('medium')" >Normal</a>
+                        <a id = "hard" href="#" class="list-group-item" onclick="pruebaRadio ('hard')" >Difícil</a>
+                        <a id = "GOD" href="#" class="list-group-item" onclick="pruebaRadio ('GOD')" >Modo Dios</a>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu 3 : Numero de Puntos Fronton-->
+        <div  id="sub-menu-3" class="panel panel-info" style="width: 25% ; position: absolute; visibility: hidden; top:70.5% ; left: 37.5%;" align="center">
+            <div class="panel-heading" style="font-size:160%;">Número de Puntos
+                <span class="glyphicon glyphicon-menu-left" aria-hidden="true" style="float: left; margin-top: 5px; cursor: pointer" onclick="cambiarMenuAtrasF ()"></span>
+                <span class="glyphicon glyphicon-home" aria-hidden="true" style="float: right; margin-top: 5px; cursor: pointer" onclick="homeF ()"></span>
+                </div>
+                <div class="panel-body">
+
+                    <div class="list-group">
+
+                        <a id = "cincoF" href="#" class="list-group-item" onclick="comenzarWall ('cinco')" >5</a>
+                        <a id = "sieteF" href="#" class="list-group-item" onclick="comenzarWall ('siete')" >7</a>
+                        <a id = "onceF" href="#" class="list-group-item" onclick="comenzarWall ('once')" >11</a>
+                        <a id = "vUnoF" href="#" class="list-group-item" onclick="comenzarWall ('vUno')" >21</a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Menu 3 : Numero de Puntos 2 Players-->
+        <div  id="sub-menu-4" class="panel panel-info" style="width: 25% ; position: absolute; visibility: hidden; top:70.5% ; left: 37.5%;" align="center">
+            <div class="panel-heading" style="font-size:160%;">Número de Puntos
+                <span class="glyphicon glyphicon-menu-left" aria-hidden="true" style="float: left; margin-top: 5px; cursor: pointer" onclick="home2P ()"></span>
+                <span class="glyphicon glyphicon-home" aria-hidden="true" style="float: right; margin-top: 5px; cursor: pointer" onclick="home2P ()"></span>
+                </div>
+                <div class="panel-body">
+
+                    <div class="list-group">
+
+                        <a id = "cinco2" href="#" class="list-group-item" onclick="comenzar2P ('cinco')" >5</a>
+                        <a id = "siete2" href="#" class="list-group-item" onclick="comenzar2P ('siete')" >7</a>
+                        <a id = "once2" href="#" class="list-group-item" onclick="comenzar2P ('once')" >11</a>
+                        <a id = "vUno2" href="#" class="list-group-item" onclick="comenzar2P ('vUno')" >21</a>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Fronton -->
+    <div id="fronton" style="width: 100%; height: 100%; position: absolute; visibility: hidden">
+        <div style="display:none;margin:1em;">
+            key <input type="text" id="id_key" value="" /> vx <input type="text" id="id_vx" value="" />
+        </div>
+
+        <header >
+            <h3 style="font-size:1.5em;margin-right:10%; margin-left:5%;padding:0.4em;border:solid 1px black;border-radius:10px;background:black;color:white;">
+                Bolas &nbsp;
+                <div id="id_bolas"></div>
+            </h3>
+        </header>
+    </div>
+
+    <!-- 2 Players -->
+    <div id="max2players">
+    <div id="2players" style="width: 100%; height: 100%; position: absolute; visibility: hidden">
+        <div style="display:none;margin:1em;">
+            key <input type="text" id="id_key" value="" /> vx <input type="text" id="id_vx" value="" />
+        </div>
+    </div>
+        <header >
+            <h3 style="width: 25%;font-size:1.5em;margin-left:5%;float: left;padding:0.4em;border:solid 1px black;border-radius:10px;background:black;color:white;">
+                Player1 &nbsp;
+                <div id="id_bolas1"></div>
+            </h3>
+
+            <h3 style="width: 25%;font-size:1.5em;margin-right:5%;float: right;padding:0.4em;border:solid 1px black;border-radius:10px;background:black;color:white;">
+                Player2 &nbsp;
+                <div id="id_bolas2"></div>
+            </h3>
+        </header>
+    </div>
+    </div>
+
+   <!-- Menus Pausas y Game Over -->
+    <div id="pause" class="panel panel-default"  style="position: absolute; width: 25%; left: 35%; top: 45%; z-index: 10; visibility: hidden;" align="center">
+        <div class="panel-heading">PAUSA
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right; margin-top: 5px; cursor: pointer" onclick="reanudar ()"></span>
+        </div>
+            <div class="panel-body">
+                 <div class="list-group">
+
+                     <a href="#" class="list-group-item" onclick="reanudar ()" >Reanudar</a>
+                     <a href="#" class="list-group-item" onclick="endGame ()" >Abandonar</a>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pauseP1" class="panel panel-default"  style="position: absolute; width: 25%; left: 35%; top: 45%; z-index: 10; visibility: hidden;" align="center">
+        <div class="panel-heading">PAUSA J1
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right; margin-top: 5px; cursor: pointer" onclick="reanudar1 ()"></span>
+        </div>
+            <div class="panel-body">
+                 <div class="list-group">
+
+                     <a href="#" class="list-group-item" onclick="reanudar1 ()" >Reanudar</a>
+                     <a href="#" class="list-group-item" onclick="endGame ()" >Abandonar</a>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pauseP2" class="panel panel-default"  style="position: absolute; width: 25%; left: 35%; top: 45%; z-index: 10; visibility: hidden;" align="center">
+        <div class="panel-heading">PAUSA J2
+            <span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right; margin-top: 5px; cursor: pointer" onclick="reanudar2 ()"></span>
+        </div>
+            <div class="panel-body">
+                 <div class="list-group">
+
+                     <a href="#" class="list-group-item" onclick="reanudar2 ()" >Reanudar</a>
+                     <a href="#" class="list-group-item" onclick="endGame ()" >Abandonar</a>
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+     <div id="GameOver1" class="panel panel-default"  style="position: absolute; width: 25%; left: 35%; top: 605%; z-index: 100; visibility: hidden;" align="center">
+             <div class="panel-body">
+                 <span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right; margin-top: 5px; cursor: pointer" onclick="endGame ()"></span>
+                <img src="images/player1.png" alt="Game Over">
+            </div>
+        </div>
+    </div>
+    <div id="GameOver2" class="panel panel-default"  style="position: absolute; width: 25%; left: 35%; top: 60%; z-index: 100; visibility: hidden;" align="center">
+             <div class="panel-body">
+                 <span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right; margin-top: 5px; cursor: pointer" onclick="endGame ()"></span>
+                <img src="images/player2.png" alt="Game Over">
+            </div>
+        </div>
+    </div>
+    <div id="GameOver" class="panel panel-default"  style="position: absolute; width: 25%; left: 35%; top: 45%; z-index: 100; visibility: hidden;" align="center">
+             <div class="panel-body">
+                 <span class="glyphicon glyphicon-remove" aria-hidden="true" style="float: right; margin-top: 5px; cursor: pointer" onclick="endGame ()"></span>
+                <img src="images/gameover.png" alt="Game Over">
+            </div>
+        </div>
+    </div>
+
+    <div id="canvasMock" style="margin-top:10%; margin-bottom:1em;">
+      </div>
+    <script src="src/utils/vector2D.js"></script>
+    <script src="src/objects/ball.js"></script>
+    <script src="src/objects/paddle.js"></script>
+    <script src="src/objects/wall.js"></script>
+    <script src="src/controllers/timeEngineWall.js"></script>
+    <script src="src/controllers/timeEngine.js"></script>
+    <script src= "spec/Mocks/CanvasMock.js"></script>
+	  <script src= "spec/Mocks/ContextMock.js"></script>
+    <script src="src/EntryPoint.js"></script>
+
+</body>
+
+</html>

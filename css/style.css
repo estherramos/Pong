@@ -1,0 +1,27 @@
+body {
+  background-color: #DCCFCF;
+  min-height:100%;
+  width:100%;
+  margin:0px;
+}
+
+html {
+  height:80%;
+  width:100%;
+  margin:0px;
+}
+
+#canvas {
+  background-color: #000;
+  border:solid 1px black;
+  height:90%;
+  width:90%;
+  margin-left:5%;
+  margin-right:5%;
+  margin-top:1em;
+}
+
+#max2players{
+  height:100%;
+  width:100%;
+}
